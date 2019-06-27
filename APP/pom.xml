@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mytest</groupId>
   <artifactId>JB421_F7</artifactId>
-  <version>1.0.224</version>
+  <version>1.0.227</version>
   <packaging>bundle</packaging>
   <name>Fuse CBR Quickstart</name>
   <description>Camel Content-Based Router Example</description>
@@ -61,35 +61,35 @@
       </exclusions>
     </dependency>
     <!--  -->
-    <dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-jaxb</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-jackson</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-xmljson</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>xom</groupId>
-		<artifactId>xom</artifactId>
-		<version>1.2.5</version>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-spark-rest</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-bindy</artifactId>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.camel</groupId>
-	    <artifactId>camel-jdbc</artifactId>
-	</dependency>
+<!--     <dependency> -->
+<!-- 		<groupId>org.apache.camel</groupId> -->
+<!-- 		<artifactId>camel-jaxb</artifactId> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>org.apache.camel</groupId> -->
+<!-- 		<artifactId>camel-jackson</artifactId> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>org.apache.camel</groupId> -->
+<!-- 		<artifactId>camel-xmljson</artifactId> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>xom</groupId> -->
+<!-- 		<artifactId>xom</artifactId> -->
+<!-- 		<version>1.2.5</version> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>org.apache.camel</groupId> -->
+<!-- 		<artifactId>camel-spark-rest</artifactId> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 		<groupId>org.apache.camel</groupId> -->
+<!-- 		<artifactId>camel-bindy</artifactId> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	    <groupId>org.apache.camel</groupId> -->
+<!-- 	    <artifactId>camel-jdbc</artifactId> -->
+<!-- 	</dependency> -->
 <!-- 		<dependency> -->
 <!-- 			<groupId>javax.enterprise</groupId> -->
 <!-- 			<artifactId>cdi-api</artifactId> -->
@@ -114,8 +114,7 @@
           <instructions>
             <Bundle-SymbolicName>Change</Bundle-SymbolicName>
             <Bundle-Name>Camel Content-Based Router Example [Change]</Bundle-Name>
-			<Import-Package> org.apache.camel.camel-bindy,
-			*</Import-Package>			          
+			<Import-Package>*</Import-Package>
           </instructions>
          </configuration>
       </plugin>

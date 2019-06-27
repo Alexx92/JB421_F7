@@ -2,8 +2,8 @@ package com.test.object;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 
@@ -13,13 +13,13 @@ public class Object_Json implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@JsonProperty("_id")
+//	@JsonProperty("_id")
 	private String id;
-	@JsonIgnore
+//	@JsonIgnore
 	private String description;
-	@JsonProperty
+//	@JsonProperty
 	private Double value;
-	@JsonProperty
+//	@JsonProperty
 	private Double tax;
 	
 	public String getId() {

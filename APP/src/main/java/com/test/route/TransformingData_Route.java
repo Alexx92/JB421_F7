@@ -5,9 +5,9 @@ import java.io.IOException;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.converter.jaxb.JaxbDataFormat;
-import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
-import org.apache.camel.dataformat.xmljson.XmlJsonDataFormat;
+//import org.apache.camel.converter.jaxb.JaxbDataFormat;
+//import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
+//import org.apache.camel.dataformat.xmljson.XmlJsonDataFormat;
 import org.apache.camel.model.dataformat.JsonLibrary;
 import org.apache.camel.spi.DataFormat;
 
@@ -22,11 +22,11 @@ public class TransformingData_Route extends RouteBuilder{
 	@Override
 	public void configure() throws Exception{
 		
-		DataFormat jaxb = new JaxbDataFormat(com.test.object.Object_A.class.getPackage().getName());
+//		DataFormat jaxb = new JaxbDataFormat(com.test.object.Object_A.class.getPackage().getName());
 
-		XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();
+//		XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();
 		
-		DataFormat bindy = new BindyCsvDataFormat(Order.class);
+//		DataFormat bindy = new BindyCsvDataFormat(Order.class);
 		
 		onException(IOException.class)
 			.log("**** ERROR ****")
@@ -118,7 +118,7 @@ public class TransformingData_Route extends RouteBuilder{
 			.log(LoggingLevel.INFO, "com.pruebas", "Contenido ==> ${body}")
 			.log("CLASS BODY => ${body.class}")
 //			.convertBodyTo(Order.class)
-			.unmarshal(bindy)
+//			.unmarshal(bindy)
 			.log("Body Transform Bean => |no ->  ${body.getNo()} | tipo -> ${body.getTipo} | numero -> ${body.getNumero()} | Description -> ${body.getDescription()}")
 			.log("WHEN | Correct ROUTE CSV")
 		;
@@ -137,10 +137,10 @@ public class TransformingData_Route extends RouteBuilder{
 					.log("***** WHEN 1 | TYPE => A | TRANSFORM JAXB *****")
 					.setBody(xpath("/orders/items/*[6]"))
 					.log("***** BODY => \n ${body} *****")
-					.unmarshal(jaxb)
+//					.unmarshal(jaxb)
 					.log("BODY CLASS AFTER unmarshal => ${body.class}")
 					.log("OBJECT DATA | name=> ${body.getName()} | id=> ${body.getId()} | tel=> ${body.getTel()}")
-					.marshal(jaxb)					
+//					.marshal(jaxb)					
 					.log("BODY AFTER marshal => ${body}")
 					.log("WHEN | Correct ROUTE A")
 				.when()
@@ -166,9 +166,9 @@ public class TransformingData_Route extends RouteBuilder{
 					.log("***** WHEN 3 | TYPE => C | TRANSFORM XML-TO-JSON *****")			
 					.setBody(xpath("/orders/items/*[1]"))
 					.log("Body XML  ==> ${body}")
-					.marshal(xmlJsonFormat)
+//					.marshal(xmlJsonFormat)
 					.log("Body Transform JSON  ==> ${body}")					
-					.unmarshal(xmlJsonFormat)
+//					.unmarshal(xmlJsonFormat)
 					.log("Body Transform XML ==> ${body}")					
 					.log("WHEN | Correct ROUTE C")
 				.otherwise()

@@ -2,22 +2,22 @@ package com.test.object;
 
 import java.io.Serializable;
 
-import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
-import org.apache.camel.dataformat.bindy.annotation.DataField;
-@CsvRecord(separator=",", crlf="UNIX")
+//import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
+//import org.apache.camel.dataformat.bindy.annotation.DataField;
+//@CsvRecord(separator=",", crlf="UNIX")
 public class Order implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@DataField(pos=1)
+//	@DataField(pos=1)
 	private String no;
-	@DataField(pos=2)
+//	@DataField(pos=2)
 	private String tipo;
-	@DataField(pos=3)
+//	@DataField(pos=3)
 	private int numero;
-	@DataField(pos=4)
+//	@DataField(pos=4)
 	private String description;
 	
 	public Order() {

@@ -1,0 +1,8 @@
+<orders>
+	<order name="ORDER-1B">
+		<no>1</no>
+		<type>B</type>
+		<nro>00000</nro>
+		<description>ORDER B</description>
+	</order>
+</orders>

@@ -1,0 +1,46 @@
+<orders>
+	<type>B</type>
+	<items>
+		<order>
+			<id>1-B</id>
+			<name>MAZDA</name>
+			<tel>00000000</tel>
+		</order>
+		<order>
+			<id>2-B</id>
+			<name>AUDI</name>
+			<tel>11111111</tel>
+		</order>
+		<order>
+			<id>3-B</id>
+			<name>BMW</name>
+			<tel>33333333</tel>
+		</order>
+		<order>
+			<id>4-B</id>
+			<name>TOYOTA</name>
+			<tel>44444444</tel>
+		</order>
+		<order>
+			<id>5-B</id>
+			<name>FORD</name>
+			<tel>55555555</tel>
+		</order>
+		<order id="6-A" name="IPHONE" tel="66666666" dir="calle_numero_ciudad"/>
+	</items>
+	<contentJson>
+		<![CDATA[
+		{
+			"_id" : "1",
+			"value" : "5.00",
+			"tax" : "0.50",
+			"description" : "Sample Text"
+		}
+		]]>
+	</contentJson>
+	<contentCSV>
+		<![CDATA[
+			1, prueva_csv, 11223344, prueva convert_to bean
+		]]>
+	</contentCSV>
+</orders>

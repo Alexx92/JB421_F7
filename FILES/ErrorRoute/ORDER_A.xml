@@ -1,0 +1,27 @@
+<orders>
+	<type>A</type>
+	<order>
+		<id>1-A</id>
+		<name>HYUNDAI</name>
+		<direccion>ALAMEDA 333</direccion>
+		<tel>22222222</tel>	
+	</order>
+	<order>
+		<id>2-A</id>
+		<name>NISSAN</name>
+		<direccion>ALAMEDA 333</direccion>
+		<tel>22222222</tel>	
+	</order>
+	<order>
+		<id>3-A</id>
+		<name>MAZDA</name>
+		<direccion>ALAMEDA 333</direccion>
+		<tel>22222222</tel>	
+	</order>
+	<order>
+		<id>4-A</id>
+		<name>AUDY</name>
+		<direccion>ALAMEDA 333</direccion>
+		<tel>22222222</tel>	
+	</order>
+</orders>

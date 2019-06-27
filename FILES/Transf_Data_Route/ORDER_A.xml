@@ -1,0 +1,41 @@
+<orders>
+	<type>A</type>
+	<items>
+		<order>
+			<id>1-A</id>
+			<name>MOTOROLA</name>
+			<tel>00000000</tel>
+		</order>
+		<order>
+			<id>2-A</id>
+			<name>SAMSUNG</name>
+			<tel>11111111</tel>
+		</order>
+		<order>
+			<id>3-A</id>
+			<name>NOKIA</name>
+			<tel>33333333</tel>
+		</order>
+		<order>
+			<id>4-A</id>
+			<name>IPHONE</name>
+			<tel>44444444</tel>
+		</order>
+		<order>
+			<id>5-A</id>
+			<name>HUAWEI</name>
+			<tel>55555555</tel>
+		</order>
+		<order id="6-A" name="IPHONE" tel="66666666"/>
+	</items>
+	<contentJson>
+		<![CDATA[
+		{
+			"_id" : "1",
+			"value" : "5.00",
+			"tax" : "0.50",
+			"description" : "Sample Text"
+		}
+		]]>
+	</contentJson>
+</orders>

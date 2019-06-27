@@ -1,8 +1,6 @@
 package com.test.bean;
 
-import org.apache.camel.Body;
 import org.apache.camel.Exchange;
-import org.apache.camel.Header;
 import org.apache.camel.builder.xml.XPathBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

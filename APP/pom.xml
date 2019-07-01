@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mytest</groupId>
   <artifactId>JB421_F7</artifactId>
-  <version>1.0.227</version>
+  <version>1.0.242</version>
   <packaging>bundle</packaging>
   <name>Fuse CBR Quickstart</name>
   <description>Camel Content-Based Router Example</description>
@@ -37,6 +37,26 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
     </dependency>
+<!--     <dependency> -->
+<!-- 	  <groupId>org.apache.camel</groupId> -->
+<!-- 	  <artifactId>camel-test-cdi</artifactId> -->
+<!-- 	  <scope>test</scope> -->
+<!-- 	</dependency> -->
+<!--     <dependency> -->
+<!-- 	  <groupId>javax.enterprise</groupId> -->
+<!-- 	  <artifactId>cdi-api</artifactId> -->
+<!-- 	  <version>1.2</version> -->
+<!-- 	  <scope>provided</scope> -->
+<!-- 	</dependency> -->
+<!-- 	<dependency> -->
+<!-- 	  <groupId>org.apache.camel</groupId> -->
+<!-- 	  <artifactId>camel-cdi</artifactId> -->
+<!-- 	</dependency> -->
+	
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-blueprint</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -44,11 +64,15 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-    </dependency>
+    </dependency>   
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
     </dependency>
+    	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-spark-rest</artifactId>
+	</dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-blueprint</artifactId>
@@ -78,10 +102,7 @@
 <!-- 		<artifactId>xom</artifactId> -->
 <!-- 		<version>1.2.5</version> -->
 <!-- 	</dependency> -->
-<!-- 	<dependency> -->
-<!-- 		<groupId>org.apache.camel</groupId> -->
-<!-- 		<artifactId>camel-spark-rest</artifactId> -->
-<!-- 	</dependency> -->
+
 <!-- 	<dependency> -->
 <!-- 		<groupId>org.apache.camel</groupId> -->
 <!-- 		<artifactId>camel-bindy</artifactId> -->
@@ -90,16 +111,6 @@
 <!-- 	    <groupId>org.apache.camel</groupId> -->
 <!-- 	    <artifactId>camel-jdbc</artifactId> -->
 <!-- 	</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>javax.enterprise</groupId> -->
-<!-- 			<artifactId>cdi-api</artifactId> -->
-<!-- 			<scope>provided</scope>1 -->
-<!-- 			<version>1.2</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.camel</groupId>2 -->
-<!-- 			<artifactId>camel-cdi</artifactId> -->
-<!-- 		</dependency> -->
   </dependencies>
   
   <build>
@@ -139,7 +150,20 @@
         <version>${camel.version}</version>
         <configuration>
           <useBlueprint>true</useBlueprint>
+<!--           <useCDI>true</useCDI> -->
         </configuration>
+<!--         <dependencies> -->
+<!--         	<dependency> -->
+<!--         		<groupId>org.apache.deltaspike.cdictrl</groupId> -->
+<!--         		<artifactId>deltaspike-cdictrl-weld</artifactId> -->
+<!--         		<version>1.8.1</version>  -->
+<!--         	</dependency> -->
+<!--         	<dependency> -->
+<!--         		<groupId>org.jboss.weld.se</groupId> -->
+<!--         		<artifactId>weld-se</artifactId> -->
+<!--         		<version>2.4.6.Final</version> -->
+<!--         	</dependency> -->
+<!--         </dependencies> -->
       </plugin>
     </plugins>
   </build>

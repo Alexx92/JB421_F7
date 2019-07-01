@@ -1,26 +1,47 @@
 package com.test.route;
 
+//import javax.inject.Inject;
+//
+//import org.apache.camel.Endpoint;
 import org.apache.camel.LoggingLevel;
+import org.apache.camel.Predicate;
+import org.apache.camel.builder.PredicateBuilder;
 import org.apache.camel.builder.RouteBuilder;
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.apache.camel.cdi.Uri;
 
 import com.test.bean.BeanPrintData;
 import com.test.bean.BeanPrintData3;
 
 public class BeansRegistries_Route extends RouteBuilder{
-	/*
-	 * Necesario para utilizacion definicion 
-	 * WHEN => /order[(contains(id,'1-C'))] 
-	 * */
-//	@Autowired
-//	private BeanPrintData3 printData1;
+//
+//	@Inject
+//	@Uri("file:C:/WEB/RECORDS/Input_BeansRouteCDI")
+//	Endpoint in;
+//	
+//	@Inject
+//	@Uri("file:C:/WEB/OUTPUTS/Output_BeansRouteCDI")
+//	Endpoint out;
+	
+	
+	Predicate isNullHeader = PredicateBuilder.or(header("CamelFileName").isNull(), simple("${header.CamelFileName==''}"));
 	
 	@Override
 	public void configure() throws Exception {
-		
-		from("file:C:/WEB/RECORDS/Input_BeansRouteCDI").id("Route_DINAMIC_ROUTIND_CDI")			
-			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")			
+		from("file:C:/WEB/RECORDS/Inputs_BeanMethodsInPredicates")
+			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")
+			.filter(method(BeanPrintData3.class,"isValidNumber")).log("*** FILTER TRUE 1 ***").end()
+			.log("***** PASS FILTER 1 | NUMBER *****")
+			.setHeader("CamelFileName",simple(""))
+			.filter(isNullHeader).log("*** FILTER TRUE 2 ***").end()
+			.log("***** END ROUTE BEANS METHODS IN PREDICATES *****") 
 		;
+		
+//		from(in).id("Route_DINAMIC_ROUTIND_CDI")			
+//			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")
+//			.log("***** ROUTE  WITH CDI *****")
+//			.to(out)
+//		;
 		
 		/*
 		 * CHOICE
@@ -62,8 +83,6 @@ public class BeansRegistries_Route extends RouteBuilder{
 			.log("RECIPIENT LIST EN ROUTE -> ${header.DESTINATION}")
 			.recipientList(header("DESTINATION"),",")
 			.log("******  END BEANS  ******")
-					
-
 		;		
 	}
 

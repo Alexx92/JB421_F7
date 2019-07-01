@@ -2,23 +2,23 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="              http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <!--     NO UTILIZAR RUTA "TransformingData_Route" Dado por compatibilidad -->
-    <bean class="com.test.route.BeansRegistries_Route" id="fileRouteBuilder"/>
+    <bean class="com.test.route.ImplementRestService_Route" id="fileRouteBuilder"/>
     <bean class="com.test.bean.ProcessA" id="ProcessA"/>
     <bean class="com.test.bean.ProcessB" id="ProcessB"/>
     <bean class="com.test.bean.BeanPrintData2" id="printData2"/>
     <!-- Config ACTIVEMQ -->
-    <!--     <bean class="org.apache.activemq.spring.ActiveMQConnectionFactory" id="connectionFactory"> -->
-    <!--         <property name="brokerURL" value="tcp://localhost:61617"/> -->
-    <!--         <property name="userName" value="admin"/> -->
-    <!--         <property name="password" value="admin"/> -->
-    <!--         <property name="trustAllPackages" value="true"/> -->
-    <!--     </bean> -->
-    <!--     <bean class="org.apache.camel.component.jms.JmsConfiguration" id="jmsConfig"> -->
-    <!--         <property name="connectionFactory" ref="connectionFactory"/> -->
-    <!--     </bean> -->
-    <!--     <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemq"> -->
-    <!--         <property name="configuration" ref="jmsConfig"/> -->
-    <!--     </bean> -->
+    <!--         <bean class="org.apache.activemq.spring.ActiveMQConnectionFactory" id="connectionFactory"> -->
+    <!--             <property name="brokerURL" value="tcp://localhost:61617"/> -->
+    <!--             <property name="userName" value="admin"/> -->
+    <!--             <property name="password" value="admin"/> -->
+    <!--             <property name="trustAllPackages" value="true"/> -->
+    <!--         </bean> -->
+    <!--         <bean class="org.apache.camel.component.jms.JmsConfiguration" id="jmsConfig"> -->
+    <!--             <property name="connectionFactory" ref="connectionFactory"/> -->
+    <!--         </bean> -->
+    <!--         <bean class="org.apache.activemq.camel.component.ActiveMQComponent" id="activemq"> -->
+    <!--             <property name="configuration" ref="jmsConfig"/> -->
+    <!--         </bean> -->
     <!-- Config Datasource -->
     <!--     <bean -->
     <!--         class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="txManager"> -->
@@ -32,18 +32,6 @@
     <!--         <property name="password" value="mysql"/> -->
     <!--     </bean> -->
     <camelContext id="JB421_F7" xmlns="http://camel.apache.org/schema/blueprint">
-        <!--
-          When this route is started, it will automatically create the work/cbr/input directory where you can drop the
-          file that need to be processed.
-
-          The <log/> elements are used to add human-friendly business logging statements. They make it easier to see what the
-          route is doing.
-
-          The <choice/> element contains the content based router. The two <when/> clauses use XPath to define the criteria 
-          for entering that part of the route. When the country in the XML message is set to UK or US, the file will be 
-          moved to a directory for that country. The <otherwise/> element ensures that any file that does not meet the 
-          requirements for either of the <when/> elements will be moved to the work/cbr/output/others directory.
-        -->
         <routeBuilder ref="fileRouteBuilder"/>
     </camelContext>
 </blueprint>

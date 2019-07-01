@@ -40,4 +40,22 @@ public class BeanPrintData3 {
 		int value = Integer.parseInt(tel);
 		
 	}
+	/*
+	 * METHODS EXECUTING PREDICATES
+	 * */
+	
+	public boolean isValidNumber(Exchange exchange)throws Exception {
+		String bodyXML  = exchange.getIn().getBody(String.class);
+		String name = XPathBuilder.xpath("/order/tel").evaluate(exchange.getContext(), bodyXML);
+		try {
+			int value = Integer.parseInt(name);
+			LOGGER.info("---> TRANSFORM CORRECT <--- | VALUE => " +  name);
+			return true;
+		}catch (NumberFormatException e) {
+			LOGGER.info("---> TRANSFORM INCORRECT <--- | VALUE => " +  name);
+			return false;			
+		}
+	}
+	
+
 }

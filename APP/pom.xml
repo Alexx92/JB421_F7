@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mytest</groupId>
   <artifactId>JB421_F7</artifactId>
-  <version>1.0.242</version>
+  <version>1.0.249</version>
   <packaging>bundle</packaging>
   <name>Fuse CBR Quickstart</name>
   <description>Camel Content-Based Router Example</description>
@@ -37,6 +37,11 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
     </dependency>
+<!--     <dependency> -->
+<!--            <groupId>org.osgi</groupId> -->
+<!--            <artifactId>org.osgi.core</artifactId> -->
+<!--            <scope>provided</scope> -->
+<!--        </dependency> -->
 <!--     <dependency> -->
 <!-- 	  <groupId>org.apache.camel</groupId> -->
 <!-- 	  <artifactId>camel-test-cdi</artifactId> -->

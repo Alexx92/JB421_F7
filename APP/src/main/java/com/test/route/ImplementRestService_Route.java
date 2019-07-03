@@ -8,7 +8,7 @@ public class ImplementRestService_Route extends RouteBuilder{
 	public void configure() throws Exception {
 		restConfiguration()
 			.component("spark-rest")
-			.port(8080)
+			.port(8585)
 //			.bindingMode(RestBindingMode.json)
 //			.dataFormatProperty("prettyPrint", "true")
 		;
@@ -35,6 +35,13 @@ public class ImplementRestService_Route extends RouteBuilder{
 			.log("${body.class}")
 			.log("DIRECT TEST B")
 			.to("mock:direct:testB");
+		from("file:C:/VALID")
+			.routeId("valid spark")
+			.log("${headers}")
+			.log("${body}")
+			.log("${body.class}")
+			.log("END TEST ROUTE SPARK")			
+			;
 	}
 	
 

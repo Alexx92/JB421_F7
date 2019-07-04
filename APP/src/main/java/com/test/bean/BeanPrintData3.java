@@ -1,10 +1,13 @@
 package com.test.bean;
 
+import javax.inject.Named;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.xml.XPathBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+//@Named("print")s
 public class BeanPrintData3 {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger("BEAN AUTOWIRED/ERROR ");
@@ -55,6 +58,21 @@ public class BeanPrintData3 {
 			LOGGER.info("---> TRANSFORM INCORRECT <--- | VALUE => " +  name);
 			return false;			
 		}
+	}
+	
+	/**/
+	
+	public void generateListRoute(Exchange exchange) {
+		String list = "";
+		list = list.concat("file:C:/WEB/RECORDS/OutPut_Slip_1,");
+		list = list.concat("file:C:/WEB/RECORDS/OutPut_Slip_2");		
+		exchange.getIn().getHeaders().put("DEST-SLIP", list);
+	}
+	public String generateMethodRoute(Exchange exchange) {
+		String list = "";
+		list = list.concat("file:C:/WEB/RECORDS/OutPut_Slip_3");
+//		list = list.concat("file:C:/WEB/RECORDS/OutPut_Slip_4");	
+		return 	list;
 	}
 	
 

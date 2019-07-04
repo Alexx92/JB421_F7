@@ -1,33 +1,53 @@
 package com.test.route;
 
-//import javax.inject.Inject;
-//
-//import org.apache.camel.Endpoint;
+import org.apache.camel.Endpoint;
+import org.apache.camel.EndpointInject;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.Predicate;
+
 import org.apache.camel.builder.PredicateBuilder;
 import org.apache.camel.builder.RouteBuilder;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.apache.camel.cdi.Uri;
+import org.apache.camel.cdi.ContextName;
 
 import com.test.bean.BeanPrintData;
 import com.test.bean.BeanPrintData3;
 
+@ContextName("context1")
 public class BeansRegistries_Route extends RouteBuilder{
-//
+
 //	@Inject
-//	@Uri("file:C:/WEB/RECORDS/Input_BeansRouteCDI")
+//	@Uri("file:C:/WEB/RECORDS/Input_BeansRouteCDI") 
 //	Endpoint in;
-//	
+
+	@EndpointInject(uri="file:C:/WEB/RECORDS/Input_BeansRouteCDI") Endpoint in2;
+	
 //	@Inject
 //	@Uri("file:C:/WEB/OUTPUTS/Output_BeansRouteCDI")
 //	Endpoint out;
-	
+		
+	@EndpointInject(uri="file:C:/WEB/RECORDS/Output_BeansRouteCDI") Endpoint out;
+
 	
 	Predicate isNullHeader = PredicateBuilder.or(header("CamelFileName").isNull(), simple("${header.CamelFileName==''}"));
 	
 	@Override
 	public void configure() throws Exception {
+		from(in2).id("Route_DINAMIC_ROUTIND_CDI")
+			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")
+			.log("***** ROUTE  WITH CDI *****")
+			.bean(BeanPrintData3.class,"generateListRoute")			
+			.to("direct:routeSlip")
+			.to(out)
+		;
+		
+		from("direct:routeSlip").routingSlip(header("DEST-SLIP"))
+//		.dynamicRouter(method(BeanPrintData3.class, "generateMethodRoute"))
+			.log("*** LIST SLIP => ${header.DEST-SLIP}")
+			.log("*** \n BODY ROUTE SPLIP => ${body} \n *** ")
+			.to("file:C:/WEB/RECORDS/OutPut_Slip_0")
+			.to("file:C:/WEB/RECORDS/OutPut_Slip_4")
+		;
+		
 		from("file:C:/WEB/RECORDS/Inputs_BeanMethodsInPredicates")
 			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")
 			.filter(method(BeanPrintData3.class,"isValidNumber")).log("*** FILTER TRUE 1 ***").end()
@@ -35,13 +55,7 @@ public class BeansRegistries_Route extends RouteBuilder{
 			.setHeader("CamelFileName",simple(""))
 			.filter(isNullHeader).log("*** FILTER TRUE 2 ***").end()
 			.log("***** END ROUTE BEANS METHODS IN PREDICATES *****") 
-		;
-		
-//		from(in).id("Route_DINAMIC_ROUTIND_CDI")			
-//			.log(LoggingLevel.INFO, "com.pruebas", "--> INIT BEANS | BODY ==> ${body}")
-//			.log("***** ROUTE  WITH CDI *****")
-//			.to(out)
-//		;
+		;		
 		
 		/*
 		 * CHOICE

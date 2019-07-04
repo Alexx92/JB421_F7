@@ -2,7 +2,9 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="              http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd              http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <!--     NO UTILIZAR RUTA "TransformingData_Route" Dado por compatibilidad -->
+    <!-- RUTA DE PRUEBA REST     -->
     <bean class="com.test.route.ImplementRestService_Route" id="fileRouteBuilder"/>
+<!--     <bean class="com.test.route.BeansRegistries_Route" id="fileRouteBuilder"/> -->
     <bean class="com.test.bean.ProcessA" id="ProcessA"/>
     <bean class="com.test.bean.ProcessB" id="ProcessB"/>
     <bean class="com.test.bean.BeanPrintData2" id="printData2"/>

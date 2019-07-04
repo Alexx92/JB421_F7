@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.mytest</groupId>
   <artifactId>JB421_F7</artifactId>
-  <version>1.0.249</version>
+  <version>1.0.263</version>
   <packaging>bundle</packaging>
   <name>Fuse CBR Quickstart</name>
   <description>Camel Content-Based Router Example</description>
@@ -42,22 +42,16 @@
 <!--            <artifactId>org.osgi.core</artifactId> -->
 <!--            <scope>provided</scope> -->
 <!--        </dependency> -->
-<!--     <dependency> -->
-<!-- 	  <groupId>org.apache.camel</groupId> -->
-<!-- 	  <artifactId>camel-test-cdi</artifactId> -->
-<!-- 	  <scope>test</scope> -->
-<!-- 	</dependency> -->
-<!--     <dependency> -->
-<!-- 	  <groupId>javax.enterprise</groupId> -->
-<!-- 	  <artifactId>cdi-api</artifactId> -->
-<!-- 	  <version>1.2</version> -->
-<!-- 	  <scope>provided</scope> -->
-<!-- 	</dependency> -->
-<!-- 	<dependency> -->
-<!-- 	  <groupId>org.apache.camel</groupId> -->
-<!-- 	  <artifactId>camel-cdi</artifactId> -->
-<!-- 	</dependency> -->
-	
+    <dependency>
+	  <groupId>javax.enterprise</groupId>
+	  <artifactId>cdi-api</artifactId>
+	  <scope>provided</scope>
+	  <version>1.2</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.camel</groupId>
+	  <artifactId>camel-cdi</artifactId>
+	</dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
@@ -74,10 +68,23 @@
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
     </dependency>
-    	<dependency>
+    <dependency>
 		<groupId>org.apache.camel</groupId>
 		<artifactId>camel-spark-rest</artifactId>
 	</dependency>
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-http4</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-bindy</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.camel</groupId>
+	    <artifactId>camel-swagger-java</artifactId>
+	</dependency>
+
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-blueprint</artifactId>
@@ -94,10 +101,10 @@
 <!-- 		<groupId>org.apache.camel</groupId> -->
 <!-- 		<artifactId>camel-jaxb</artifactId> -->
 <!-- 	</dependency> -->
-<!-- 	<dependency> -->
-<!-- 		<groupId>org.apache.camel</groupId> -->
-<!-- 		<artifactId>camel-jackson</artifactId> -->
-<!-- 	</dependency> -->
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-jackson</artifactId>
+	</dependency>
 <!-- 	<dependency> -->
 <!-- 		<groupId>org.apache.camel</groupId> -->
 <!-- 		<artifactId>camel-xmljson</artifactId> -->
@@ -108,10 +115,7 @@
 <!-- 		<version>1.2.5</version> -->
 <!-- 	</dependency> -->
 
-<!-- 	<dependency> -->
-<!-- 		<groupId>org.apache.camel</groupId> -->
-<!-- 		<artifactId>camel-bindy</artifactId> -->
-<!-- 	</dependency> -->
+
 <!-- 	<dependency> -->
 <!-- 	    <groupId>org.apache.camel</groupId> -->
 <!-- 	    <artifactId>camel-jdbc</artifactId> -->
@@ -128,8 +132,8 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Bundle-SymbolicName>Change</Bundle-SymbolicName>
-            <Bundle-Name>Camel Content-Based Router Example [Change]</Bundle-Name>
+            <Bundle-SymbolicName>JB421_F7</Bundle-SymbolicName>
+            <Bundle-Name>Camel Content-Based Router Example [JB421_F7]</Bundle-Name>
 			<Import-Package>*</Import-Package>
           </instructions>
          </configuration>
@@ -155,7 +159,7 @@
         <version>${camel.version}</version>
         <configuration>
           <useBlueprint>true</useBlueprint>
-<!--           <useCDI>true</useCDI> -->
+          <useCDI>true</useCDI>
         </configuration>
 <!--         <dependencies> -->
 <!--         	<dependency> -->
